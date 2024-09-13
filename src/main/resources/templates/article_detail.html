@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<div class="container my-3">
+  <!-- 질문 -->
+  <h2 class="border-bottom py-2" th:text="${article.title}"></h2>
+  <div class="card my-3">
+    <div class="card-body">
+      <div class="card-text" style="white-space: pre-line;" th:text="${article.content}"></div>
+      <div class="d-flex justify-content-end">
+        <div class="badge bg-light text-dark p-2 text-start">
+          <div th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</body>
-</html>
+
+</div>
