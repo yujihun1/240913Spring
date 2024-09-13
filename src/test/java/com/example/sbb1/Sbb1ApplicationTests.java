@@ -1,13 +1,28 @@
 package com.example.sbb1;
 
+import com.example.sbb1.article.Article;
+import com.example.sbb1.article.ArticleRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDateTime;
 
 @SpringBootTest
 class Sbb1ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
 
+	@Autowired
+	private ArticleRepository articleRepository;
+
+	@Test
+	void testJpa() {
+		Article q1 = new Article();
+		q1.setTitle("test 질문?");
+		q1.setContent("test 내용");
+		q1.setCreateDate(LocalDateTime.now());
+		this.articleRepository.save(q1);  // 첫번째 질문 저장
+
+		 // 두번째 질문 저장
+	}
 }
